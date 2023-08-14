@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Welcome to our Password Generator!</h1>
+    <hr />
+    <p id="main-text">
+      Are you tired of struggling to come up with strong and secure passwords?
+      Look no further! Our Password Generator is here to simplify the process
+      for you. With just a few clicks, our tool can generate unique and robust
+      passwords that will keep your accounts and personal information safe from
+      hackers and unauthorized access. Our Password Generator takes into
+      consideration various factors such as length, complexity, and inclusion of
+      special characters, numbers, and uppercase and lowercase letters. This
+      ensures that the passwords generated are not only strong but also easy for
+      you to remember.
+    </p>
+    <hr />
+    <h2>Generator:</h2>
+    <label for="passwords">Password: {{time}}</label>
+    <form action="/form" method="post">
+      <label for="length">Length:</label>
+      <input type="number" name="length" id="length" />
+      <br />
+      <label for="symbols">Symbols:</label>
+      <input type="checkbox" name="symbols" id="symbols" />
+      <br />
+      <label for="numbers">Numbers:</label>
+      <input type="checkbox" name="numbers" id="numbers" />
+    </form>
+    <hr />
+    <p id="copyright-text">© 2023 Mohamed Ahmed El Ouadih</p>
+  </body>
+</html>
