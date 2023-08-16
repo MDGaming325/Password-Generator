@@ -3,38 +3,11 @@ import string
 from django import forms
 from django.db import models
 
-
 class options:
     def __init__(self, length, symbols, numbers):
         self.length = length
         self.symbols = symbols
         self.numbers = numbers
-
-
-class request(models.Model):
-    length = models.FloatField()
-    symbols = models.BooleanField()
-    numbers = models.BooleanField()
-
-
-class RequestForm(forms.ModelForm):
-    model = request
-
-    fields = [
-        'length',
-        'symbols',
-        'numbers',
-    ]
-
-    labels = {
-        'length': 'Length',
-        'symbols': 'Symbols',
-        'numbers': 'Numbers',
-    }
-
-    widgets = {
-        
-    }
 
 
 def set_characters(symbols: bool, numbers: bool):
@@ -57,9 +30,9 @@ characters_len = len(y)
 characters_list = list(y)
 
 
-def gen_password():
+def gen_password(length:int, symbols:bool, numbers:bool):
 
-    for i in range(request.length):
+    for i in range(length):
         x.append(characters_list[random.randrange(characters_len)])
 
     string = ''.join(x)

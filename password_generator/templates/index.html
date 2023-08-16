@@ -25,23 +25,7 @@
     </p>
     <hr />
     <h2>Generator:</h2>
-    <label for="passwords">Password: {{generated_password}}</label>
-    <br />
-    <div>
-      <form action="/form/" method="POST">
-        {% csrf_token %}
-        <label for="length">Length:</label>
-        <input name="length-input" type="number" name="length" />
-        <br />
-        <label for="symbols">Symbols:</label>
-        <input name="symbols-input" type="checkbox" name="symbols" />
-        <br />
-        <label for="numbers">Numbers:</label>
-        <input name="numbers-input" type="checkbox" name="numbers" />
-        <br />
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
+    {% block content %}{% endblock %}
     <hr />
     <p id="copyright-text">© 2023 Mohamed Ahmed El Ouadih</p>
   </body>
