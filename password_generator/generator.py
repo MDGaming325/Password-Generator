@@ -1,5 +1,7 @@
 import random
 import string
+from django import forms
+from django.db import models
 
 
 class options:
@@ -7,6 +9,32 @@ class options:
         self.length = length
         self.symbols = symbols
         self.numbers = numbers
+
+
+class request(models.Model):
+    length = models.FloatField()
+    symbols = models.BooleanField()
+    numbers = models.BooleanField()
+
+
+class RequestForm(forms.ModelForm):
+    model = request
+
+    fields = [
+        'length',
+        'symbols',
+        'numbers',
+    ]
+
+    labels = {
+        'length': 'Length',
+        'symbols': 'Symbols',
+        'numbers': 'Numbers',
+    }
+
+    widgets = {
+        
+    }
 
 
 def set_characters(symbols: bool, numbers: bool):
@@ -29,13 +57,11 @@ characters_len = len(y)
 characters_list = list(y)
 
 
-def create_arr():
+def gen_password():
 
     for i in range(request.length):
         x.append(characters_list[random.randrange(characters_len)])
 
     string = ''.join(x)
 
-    print(string)
-
-
+    return string
