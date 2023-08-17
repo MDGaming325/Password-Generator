@@ -1,6 +1,8 @@
+{% extends 'index.html' %} {% block content %}
 <label for="passwords">Password: {{ generated_password }}</label>
 <br />
 <form action="">
   {{form.as_p}}
   <button>Generate Password</button>
 </form>
+{% endblock %}

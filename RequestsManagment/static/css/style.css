@@ -1,0 +1,17 @@
+* {
+  text-align: center;
+  background-color: rgb(44, 48, 53);
+}
+
+#copyright-text {
+  color: salmon;
+}
+
+body,
+input {
+  color: white;
+}
+
+#main-text {
+  padding: 20px;
+}

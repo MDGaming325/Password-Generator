@@ -3,14 +3,16 @@ from RequestsManagment.models import RequestModel
 from RequestsManagment.forms import RequestForm
 from password_generator.generator import gen_password
 
-def form(request):
+def main(request):
     length_REQ = int(request.GET.get('length', 0))
     symbols_REQ = bool(request.GET.get('symbols', False))
     numbers_REQ = bool(request.GET.get('numbers', False))
     
     RequestModel.objects.create(length=length_REQ, symbols=symbols_REQ, numbers=numbers_REQ)
-    
-    x = {'form': RequestForm()}
 
-    return render(request, "form.html", x)
+    generated_password = gen_password(length_REQ, symbols_REQ, numbers_REQ)
+    
+    dict = {'form': RequestForm(), 'generated_password': generated_password}
+
+    return render(request, "form.html", dict)
 
