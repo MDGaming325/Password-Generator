@@ -16,13 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from password_generator.views import main
-from RequestsManagment.views import form
+from RequestsManagment.views import main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('maintest/', main),
-    path('form/', form),
+    path('', main),
 
 ]
 
