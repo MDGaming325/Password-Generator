@@ -9,7 +9,7 @@ from RequestsManagment.models import RequestModel
 def main(request):
 
    
-    generated_password = gen_password()
+    generated_password = ""
     
     ext_doc = loader.get_template('index.html')
     dict = {"generated_password": generated_password}
@@ -19,20 +19,3 @@ def main(request):
     return HttpResponse(x)
 
 
-def form(request):
-     
-    length = request.POST['length']
-    symbols = request.POST['symbols']
-    numbers = request.POST['numbers']
-
-    RequestModel.objects.create(length=length, symbols=symbols, numbers=numbers)
-
-   # x = {'form' : RequestForm()}
-
-    # return render(request, "form.html", x)
-
-class ScrapHtml:
-    def __init__(self, length, symbols, numbers):
-        self.length = length
-        self.symbols = symbols
-        self.numbers = numbers
