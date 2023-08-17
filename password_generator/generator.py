@@ -1,8 +1,5 @@
 import random
 import string
-from django import forms
-from django.db import models
-
 
 
 def set_characters(symbols: bool, numbers: bool):
@@ -16,8 +13,8 @@ def set_characters(symbols: bool, numbers: bool):
         return characters + string.digits
 
 
-def gen_password(length:int, symbols:bool, numbers:bool):
-    
+def gen_password(length: int, symbols: bool, numbers: bool):
+
     x = []
 
     loaded_characters = set_characters(symbols, numbers)
