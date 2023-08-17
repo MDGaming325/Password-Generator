@@ -1,4 +1,5 @@
 # Python Cache
+__pycache__/
 
-*.pyc
-.vscode/*
+# VSCode Settings
+.vscode/
