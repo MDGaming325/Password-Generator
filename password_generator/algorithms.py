@@ -5,12 +5,12 @@ import string
 def set_characters(symbols: bool, numbers: bool):
     characters = string.ascii_letters
 
-    if symbols and numbers:
-        return characters + string.punctuation + string.digits
-    elif symbols:
-        return characters + string.punctuation
-    elif numbers:
-        return characters + string.digits
+    if symbols:
+        characters += string.punctuation
+    if numbers:
+        characters += string.digits
+    
+    return characters + string.ascii_letters
 
 
 def gen_password(length: int, symbols: bool, numbers: bool):
