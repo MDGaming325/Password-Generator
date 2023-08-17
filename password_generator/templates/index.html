@@ -2,7 +2,12 @@
 <html>
   <head>
     <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
   </head>
   <body>
     <h1>Welcome to our Password Generator!</h1>
@@ -20,17 +25,7 @@
     </p>
     <hr />
     <h2>Generator:</h2>
-    <label for="passwords">Password: {{time}}</label>
-    <form action="/form" method="post">
-      <label for="length">Length:</label>
-      <input type="number" name="length" id="length" />
-      <br />
-      <label for="symbols">Symbols:</label>
-      <input type="checkbox" name="symbols" id="symbols" />
-      <br />
-      <label for="numbers">Numbers:</label>
-      <input type="checkbox" name="numbers" id="numbers" />
-    </form>
+    {% block content %}{% endblock %}
     <hr />
     <p id="copyright-text">© 2023 Mohamed Ahmed El Ouadih</p>
   </body>

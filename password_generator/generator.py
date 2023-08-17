@@ -1,21 +1,9 @@
-
 import random
 import string
-
-class options:
-  def __init__(self, length, symbols, numbers):
-    self.length = length
-    self.symbols = symbols
-    self.numbers = numbers
+from django import forms
+from django.db import models
 
 
-
-
-
-request = options(16, False, False)
-characters = string.ascii_letters
-
-   
 
 def set_characters(symbols: bool, numbers: bool):
     characters = string.ascii_letters
@@ -26,34 +14,19 @@ def set_characters(symbols: bool, numbers: bool):
         return characters + string.punctuation
     elif numbers:
         return characters + string.digits
+
+
+def gen_password(length:int, symbols:bool, numbers:bool):
     
-characters_len = len(characters)
+    x = []
 
-characters_list = list(characters)
+    loaded_characters = set_characters(symbols, numbers)
+    characters_len = len(loaded_characters)
+    characters_list = list(loaded_characters)
 
-x = []
+    for i in range(length):
+        x.append(characters_list[random.randrange(characters_len)])
 
-for i in range(23):
-   
-   
+    string = ''.join(x)
 
-   x.append(characters_list[random.randrange(characters_len)])
-
-
-    
-
-print(x)
-    
-
-
-
-       
-
-
-    
-    
-
-
-
-
-  
+    return string
